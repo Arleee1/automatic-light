@@ -6,7 +6,7 @@ var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 var events = require('events');
 var eventEmitter = new events.EventEmitter();
 var light_pin = new Gpio(14, 'out');
-light_pin.writeSync(0);
+light_pin.writeSync(1);
 server.listen(100);
 function sleep(ms) {
   var start = new Date().getTime();
@@ -15,12 +15,12 @@ function sleep(ms) {
 
 function handler (req, res) { //create server
   if (req.url === "/light/on"){
-    light_pin.writeSync(1);
+    light_pin.writeSync(0);
     res.end("light turned on");
     console.log("light turned on");
   }
   else if (req.url === "/light/off"){
-    light_pin.writeSync(0);
+    light_pin.writeSync(1);
     res.end("light turned off");
     console.log("light turned off");
   }
