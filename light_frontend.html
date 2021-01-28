@@ -95,10 +95,10 @@
       document.getElementById("light_switch").addEventListener("click", ()=>{
         state = !state
         if(state) {
-          request("http://192.168.1.197:1000/on");
+          request("http://192.168.1.191:100/light/on");
         }
         else {
-          request("http://192.168.1.197:1000/off");
+          request("http://192.168.1.191:100/light/off");
         }
       })
     </script>
